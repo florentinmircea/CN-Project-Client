@@ -1,24 +1,43 @@
-import React from 'react';
+import React, { FC, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import LoginPage from './components/LoginPage';
+import { AuthInfo, Login } from '@maruware/material-ui-login';
+import { useTheme } from '@mui/system';
+import MiniDrawer from './components/MiniDrawer';
 
-function App() {
+const App: FC<{}> = props => {
+  const [key, setKey] = useState<string | null>(window.sessionStorage.getItem("key"));
+  const signIn = async ({ username, password }: AuthInfo) => {
+    console.log(username+' '+password)
+    window.sessionStorage.setItem("key", password);
+    setKey(password);
+    // need api call for returning auth token
+    // const client = new ApiClient(false)
+    // client
+    //   .login({ username, password })
+    //   .then((data) => {
+    //     console.log('success')
+    //   })
+    //   .catch(() => {
+    //     console.log('failed')
+    //   })
+  }
+  const theme = useTheme();
+  const [open, setOpen] = React.useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {key === null ? 
+        <Login
+        onSubmit={signIn}
+        usernameLabel="Username"
+        passwordLabel="Password"
+        submitButtonLabel="Log in"
+        backgroundColor="#7464bc"
+        />: null}
+      {key !== null ?
+      <MiniDrawer setKey={setKey}/> : null
+      }
     </div>
   );
 }
