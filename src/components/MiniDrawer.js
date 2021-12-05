@@ -243,9 +243,6 @@ export default function MiniDrawer(props) {
                 {temperature[0] < 25 && temperature[0] > 0  ?<Typography variant="body2">Cold outside</Typography> : null}
                 {temperature[0] < 0  ?<Typography variant="body2">Freezing outside</Typography> : null}
               </CardContent>
-              {/* <CardActions>
-                <Button size="small">View More Data</Button>
-              </CardActions> */}
             </Card>
 
             <Card>
@@ -273,9 +270,6 @@ export default function MiniDrawer(props) {
                 {humidity[0] >= 60 && humidity[0] < 70  ?<Typography variant="body2">Fair humidity</Typography> : null}
                 {humidity[0] >= 70 ?<Typography variant="body2">Poor high humidity</Typography> : null}
               </CardContent>
-              {/* <CardActions>
-                <Button size="small">View More Data</Button>
-              </CardActions> */}
             </Card>
 
             <Card>
@@ -301,9 +295,6 @@ export default function MiniDrawer(props) {
                 <br />
                 <br />     
               </CardContent>
-              {/* <CardActions>
-                <Button size="small">View More Data</Button>
-              </CardActions> */}
             </Card>
           </div>
         ) : null}
@@ -404,14 +395,6 @@ export default function MiniDrawer(props) {
             </div>
           </div>
         ) : null}
-
-        {/* {analog.length!==0 ? analog.map((item,index) => {
-          return (<div key={index}>
-                    <Typography paragraph>
-                   {'Analog value'+index+': '+item}
-                  </Typography>
-                  </div>);
-        }) : ''}*/}
       </Box>
     </Box>
   );

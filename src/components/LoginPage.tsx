@@ -5,15 +5,6 @@ import React, {FC} from "react"
 const LoginPage: FC<{}> = props => {
   const signIn = async ({ username, password }: AuthInfo) => {
     console.log(username+' '+password)
-    // const client = new ApiClient(false)
-    // client
-    //   .login({ username, password })
-    //   .then((data) => {
-    //     console.log('success')
-    //   })
-    //   .catch(() => {
-    //     console.log('failed')
-    //   })
   }
   return (
   <Login
